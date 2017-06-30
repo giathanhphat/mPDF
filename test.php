@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <?php ob_start(); ?>
   <div class="wrapper">
     <div class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quod inventore expedita, autem laborum architecto nulla
       illum ipsa, quo totam repellat, aut facilis itaque laboriosam hic placeat? Assumenda ab eligendi, sequi neque ad repellat
@@ -62,8 +63,9 @@
       quasi culpa saepe sunt, ea obcaecati minus ipsam repellat delectus. Voluptates fuga alias officia vitae incidunt deleniti,
       pariatur esse officiis dicta porro.</div>
       <table border="1" >
+      <?php $x = 2; ?>
         <tr>
-        <td><?php echo 'aaaaaaaaaa'; ?></td>
+        <td><?php echo $x; ?></td>
         <td>phat</td>
         <td>phat</td>
         <td>phat</td>
@@ -134,6 +136,7 @@
         </tr>
       </table>
   </div>
+  <?php ob_get_clean(); ?>
 </body>
 
 </html>
