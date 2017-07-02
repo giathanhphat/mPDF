@@ -3,12 +3,72 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="test.css">
+  <!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
+  <style type="text/css">
+    * {
+    margin: 0px;
+    padding: 0px;
+}
+
+.wrapper {
+    width: 675px;
+    height: 1000px;
+    border: solid 1px #000;
+    margin: auto;
+}
+
+.title {
+    width: 100%;
+    height: 100px;
+    border: solid 1px #000;
+    color: #ff0000;
+    background-color: #a1a1a1;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+    border: solid 1px #000;
+}
+
+.content {
+    width: 100%;
+    height: 600px;
+    border: solid 1px #000;
+}
+
+.content .left {
+    width: 300px;
+    height: 100%;
+    border: solid 1px #000;
+    float: left;
+}
+
+.content .right {
+    width: 365px;
+    height: 100%;
+    border: solid 1px #000;
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.footer {
+    width: 100%;
+    height: 100px;
+    border: solid 1px #000;
+}
+
+#phat{
+  color: #ff0000;
+}
+  </style>
   <title></title>
 </head>
 
 <body>
-  <?php ob_start(); ?>
   <div class="wrapper">
     <div class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta quod inventore expedita, autem laborum architecto nulla
       illum ipsa, quo totam repellat, aut facilis itaque laboriosam hic placeat? Assumenda ab eligendi, sequi neque ad repellat
@@ -62,10 +122,10 @@
       Illum incidunt deserunt velit consectetur labore minima nihil molestiae fugiat soluta nostrum voluptas ad a, neque
       quasi culpa saepe sunt, ea obcaecati minus ipsam repellat delectus. Voluptates fuga alias officia vitae incidunt deleniti,
       pariatur esse officiis dicta porro.</div>
-      <table border="1" >
-      <?php $x = 2; ?>
+      <table border="1" cellspacing="0">
+      <?php $x = 'khong the tuong tuong noi'; ?>
         <tr>
-        <td><?php echo $x; ?></td>
+        <td id="phat"><?php echo $x; ?></td>
         <td>phat</td>
         <td>phat</td>
         <td>phat</td>
@@ -136,7 +196,6 @@
         </tr>
       </table>
   </div>
-  <?php ob_get_clean(); ?>
 </body>
 
 </html>
