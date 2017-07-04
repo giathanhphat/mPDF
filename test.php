@@ -1,91 +1,54 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
   <!-- <link rel="stylesheet" type="text/css" href="test.css"> -->
   <style type="text/css">
-    * {
+*{
     margin: 0px;
     padding: 0px;
 }
 
 .wrapper {
-    width: 275px;
-    height: 1000px;
+    width: 675px;
+    height: auto;
     border: solid 1px #000;
-    margin: auto;
 }
 
-.title {
+.wrapper .left table{
     width: 100%;
-    height: 100px;
-    border: solid 1px #000;
-    color: #ff0000;
-    background-color: #a1a1a1;
+    height: auto;
 }
 
-.header {
-    width: 100%;
-    height: 200px;
-    border: solid 1px #000;
-}
 
-.content {
-    width: 100%;
-    height: 600px;
-    border: solid 1px #000;
-}
 
-.content .left {
-    width: 300px;
-    height: 100%;
-    border: solid 1px #000;
-    float: left;
-}
 
-.content .right {
-    width: 365px;
-    height: 100%;
-    border: solid 1px #000;
-    float: right;
-}
-
-.clear {
-    clear: both;
-}
-
-.footer {
-    width: 100%;
-    height: 100px;
-    border: solid 1px #000;
-}
-
-#phat{
-  color: #ff0000;
-}
-  </style>
+</style>
   <title></title>
 </head>
 
 <body>
   <div class="wrapper">
-      <table border="1" cellspacing="0" align="center">
+        <div class="left">
+      <table border="1" cellspacing="0">
         <tr>
-        <td>id</td>
-        <td>ten</td>
-        <td>tuoi</td>
-        <td>diachi</td>
+        <th class="id">id クアンガイ</th>
+        <th class="ten">ten پښتو</th>
+        <th class="tuoi">tuoi</th>
+        <th class="diachi">diachi</th>
         </tr>
       <?php
         $conn = mysqli_connect('localhost','root','','test') or die ('Không thể kết nối tới database');
+        // Change character set to utf8
+        mysqli_set_charset($conn,"utf8");
+
         // Câu truy vấn
         $sql = 'SELECT * FROM users';
       
         // Thực hiện câu truy vấn, hàm này truyền hai tham số vào là biến kết nối và câu truy vấn
         $result = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_assoc($result)){
+        while ($row = mysqli_fetch_array($result)){
           ?>
         <tr>
         <td><?php echo $row['id'] ?></td>
@@ -97,6 +60,7 @@
       }
        ?>
       </table>
+      </div>
   </div>
 </body>
 

@@ -64,10 +64,33 @@ $html1 = '
 
 </html>
 	';
- 
+  $mpdf->defaultheaderfontsize = 15;
+	$mpdf->defaultheaderfontstyle = 'B';
+	$mpdf->defaultheaderline = 0;
+	$mpdf->defaultfooterfontsize = 10;
+	$mpdf->defaultfooterfontstyle = 'BI';
+	$mpdf->defaultfooterline = 0;
+	$mpdf->defaultPageNumStyle = '1';//giống hiển thị như A, B, C hoặc 1, 2, 3 hoặc I, II, III...
+  $mpdf->showWatermarkText = true;
+	$mpdf->SetWatermarkText('GIA THANH PHAT', 0.5);
+ 	$mpdf->SetHeader('||GIÃ THÀNH PHÁT'); //địng dạng theo left|center|right
+	$mpdf->SetFooter('|Page {PAGENO}/{nb}|');
+  
+  $mpdf->autoScriptToLang = true;
+  $mpdf->autoLangToFont = true;
+
+  //KHÔNG ĐƯỢC
+  // $mpdf->allow_charset_conversion=true;
+  // $mpdf->charset_in='UTF-8';
+
 	ob_start();
 	include('test.php');
 	$content = ob_get_clean();
+
+  // $content = mb_convert_encoding($content, 'UTF-8', 'UTF-8');//KO ĐƯỢC
+  // $content = utf8_encode($content);//CHẠY ĐƯỢC
 	$mpdf->WriteHTML($content);
-	$mpdf->Output();
+  $mpdf->AliasNbPages();
+  $mpdf->Output();
+	// $mpdf->Output('phatkita.pdf','F');
 ?>
